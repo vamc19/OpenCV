@@ -1,0 +1,17 @@
+**********************************My Experiments With OpenCV****************************************
+
+######################################################################################################################
+About OpenCV:
+
+OpenCV (Open Source Computer Vision Library) is a library of programming functions mainly aimed at real time computer vision, developed by Intel and now supported by Willow Garage. It is free for use under the open source BSD license. The library is cross-platform. It focuses mainly on real-time image processing.
+
+Homepage : http://opencv.willowgarage.com/wiki/
+######################################################################################################################
+
+This repository contains the code I write while experimenting with/learning OpenCV. The following are the contents of this repo.
+
+1. Huzain <huzain.py> - A basic drawing program.
+
+
+
+ All the code in this repository is under GNU General Public License v3.0. See LICENSES or http://www.gnu.org/licenses/ for more details.
