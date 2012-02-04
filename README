@@ -8,10 +8,12 @@ OpenCV (Open Source Computer Vision Library) is a library of programming functio
 Homepage : http://opencv.willowgarage.com/wiki/
 ######################################################################################################################
 
-This repository contains the code I write while experimenting with/learning OpenCV. The following are the contents of this repo.
+This repository contains the code I write while experimenting with/learning OpenCV. 
 
-1. Huzain <huzain.py> - A basic drawing program.
+Contents of this repository:
+1. Huzain 		<huzain.py> 		 A basic drawing program.
+2. HSV Range Finder 	<rangeFinder_HSV.py>	 A program to find HSV values to threshold a color.
+3. RGB Range Finder	<rangeFinder_RGB.py>	 A program to find RGB values to threshold a color.
 
 
-
- All the code in this repository is under GNU General Public License v3.0. See LICENSES or http://www.gnu.org/licenses/ for more details.
+All the code in this repository is under GNU General Public License v3.0. See LICENSES or http://www.gnu.org/licenses/ for more details.
