@@ -18,7 +18,7 @@
 #############################################################################
 
 #############################################################################
-#    A program that can make a picture scroll across the window horizontally.
+#    A program that can make an image scroll across the window horizontally.
 #
 #    Usage: python animate <path/to/image>
 #           Press ESC key to exit.
