@@ -31,28 +31,34 @@ import sys
 
 def threshold(valueList):
     cv.InRangeS(frame, (valueList[0], valueList[1], valueList[2]),
-                          (valueList[3], valueList[4], valueList[5]), threshFrame)
+               (valueList[3], valueList[4], valueList[5]), threshFrame)
     cv.ShowImage("Thresholded Image", threshFrame)
+
 
 def maxBlue(pos):
     valueList[3] = pos
     threshold(valueList)
 
+
 def maxGreen(pos):
     valueList[4] = pos
     threshold(valueList)
+
 
 def maxRed(pos):
     valueList[5] = pos
     threshold(valueList)
 
+
 def minBlue(pos):
     valueList[0] = pos
     threshold(valueList)
 
+
 def minGreen(pos):
     valueList[1] = pos
     threshold(valueList)
+
 
 def minRed(pos):
     valueList[2] = pos
