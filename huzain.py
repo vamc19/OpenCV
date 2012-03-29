@@ -19,7 +19,7 @@
 
 #############################################################################
 #    This is a basic drawing program named after one of my favorite
-#    painter, M.F. Hussain
+#    painters, M.F. Hussain.
 #
 #    Key Bindings:
 #        Press 'a' to save the image as 'image.jpg'
@@ -29,53 +29,76 @@
 #    Add color chart instead of trackbars.
 #############################################################################
 import cv
-import os
 
 #Default valuues of blue, green, red and radius of brush respectively.
-values = [0,0,0,5]
+values = [0, 0, 0, 5]
+
 
 def onMove(event, x, y, flags, params):
     drawBrush(x, y)
+    global i, lastX, lastY
+    if i == 0:
+        lastX = x
+        lastY = y
     if flags == cv.CV_EVENT_FLAG_LBUTTON:
-        draw(x,y, values)
+        drawLine(x, y, lastX, lastY, values)
+        lastX = x
+        lastY = y
+        i = 2
+
+    if event == cv.CV_EVENT_LBUTTONUP:
+        i = 0
+
 
 def drawBrush(x, y):
     tempImg = cv.CloneImage(img)
-    cv.Circle(tempImg, (x,y), values[3], (0,0,0), 1, 8, 0)
+    cv.Circle(tempImg, (x, y), values[3]/2, (0, 0, 0), 1, 8, 0)
     cv.ShowImage("Huzain", tempImg)
 
-def draw(x, y, values):
-    cv.Circle(img, (x,y), values[3], (values[0], values[1], values[2]), -1, 8, 0)
+
+def drawLine(x, y, lastX, lastY, values):
+    cv.Line(img, (x, y), (lastX, lastY), (values[0], values[1], values[2]), values[3], 8, 0)
+
+
+def drawPoint(x, y, values):
+    cv.Circle(img, (x, y), values[3], (values[0], values[1], values[2]), -1, 8, 0)
+
 
 def blue(value):
     values[0] = value
     changeSample(values)
 
+
 def green(value):
     values[1] = value
     changeSample(values)
+
 
 def red(value):
     values[2] = value
     changeSample(values)
 
+
 def radius(value):
     values[3] = value
+
 
 def changeSample(values):
     cv.Set(sample, (values[0], values[1], values[2]), None)
     cv.ShowImage("Tools", sample)
 
-img = cv.CreateImage((640,480), 8, 3)
-sample = cv.CreateImage((20,20), 8, 3)
-cv.Set(img, cv.CV_RGB(255,255,255), None)
-cv.Set(sample, cv.CV_RGB(0,0,0), None)
-cv.NamedWindow("Huzain",1)
+
+i = 0
+img = cv.CreateImage((640, 480), 8, 3)
+sample = cv.CreateImage((20, 20), 8, 3)
+cv.Set(img, cv.CV_RGB(255, 255, 255), None)
+cv.Set(sample, cv.CV_RGB(0, 0, 0), None)
+cv.NamedWindow("Huzain", 1)
 cv.NamedWindow("Tools", 1)
 
 cv.CreateTrackbar("Red", "Tools", 0, 255, red)
 cv.CreateTrackbar("Green", "Tools", 0, 255, green)
-cv.CreateTrackbar("Blue", "Tools", 0 , 255, blue)
+cv.CreateTrackbar("Blue", "Tools", 0, 255, blue)
 cv.CreateTrackbar("Brush Size", "Tools", 1, 40, radius)
 cv.SetTrackbarPos("Brush Size", "Tools", 5)
 
