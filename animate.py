@@ -20,7 +20,7 @@
 #############################################################################
 #    A program that can make an image scroll across the window horizontally.
 #
-#    Usage: python animate <path/to/image>
+#    Usage: python animate.py <path/to/image>
 #           Press ESC key to exit.
 #
 #############################################################################
@@ -33,9 +33,10 @@ img = cv.LoadImage(sys.argv[1])
 width = img.width
 height = img.height
 
-sliceList = []
+Slicelist = []
 x = 0
 i = 0
+sliceList = []
 while x in range(width):
     slice = cv.GetSubRect(img, (x, 0, 1, height))
     sliceList.append(slice)
@@ -64,4 +65,3 @@ while True:
     k = cv.WaitKey(50) % 0x100
     if k == 27:
         break
-
