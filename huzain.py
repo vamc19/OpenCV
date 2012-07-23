@@ -57,7 +57,7 @@ def drawBrush(x, y):
 
 
 def drawLine(x, y, lastX, lastY, values):
-    cv.Line(img, (x, y), (lastX, lastY), (values[0], values[1], values[2]), values[3], 8, 0)
+    cv.Line(img, (x, y), (lastX, lastY), (values[0], values[1], values[2]), values[3], cv.CV_AA, 0)
 
 
 def drawPoint(x, y, values):
