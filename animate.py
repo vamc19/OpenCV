@@ -33,7 +33,6 @@ img = cv.LoadImage(sys.argv[1])
 width = img.width
 height = img.height
 
-Slicelist = []
 x = 0
 i = 0
 sliceList = []
